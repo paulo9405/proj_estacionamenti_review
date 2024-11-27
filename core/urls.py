@@ -1,8 +1,8 @@
-from django.conf.urls import url, include
 from django.urls import path
-from .views import home
+from .views import home, lista_pessoas, lista_veiculos
 
 urlpatterns = [
-        #url(r'^$', home, name='core_home'), # chamo a função 'home' e dou o nome pra ela de 'core_home'
-        path('index/', home, name='core_home')
+        path('index/', home, name='core_home'),
+        path('pessoas/', lista_pessoas, name='core_lista_pessoas'),
+        path('veiculos/', lista_veiculos, name='core_lista_veiculos'),
 ]
