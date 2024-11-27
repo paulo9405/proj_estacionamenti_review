@@ -1,0 +1,6 @@
+ex:
+venv
+.DS_Store
+.idea
+*.sqlite3
+*pyc
