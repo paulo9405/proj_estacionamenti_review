@@ -16,3 +16,21 @@ class Parametros(models.Model):
 
     def __str__(self):
         return 'Parametros Gerais'
+
+
+class Marca(models.Model):
+    nome = models.CharField(max_length=50)
+
+    def __str__(self):
+        return self.nome
+
+
+class Veiculo(models.Model):
+    marca = models.ForeignKey(Marca, on_delete=models.CASCADE)
+    placa = models.CharField(max_length=10)
+    proprietario = models.ForeignKey(Pessoa, on_delete=models.CASCADE)
+    cor = models.CharField(max_length=10)
+    observacoes = models.TextField()
+
+    def __str__(self):
+        return self.marca.name + '-' + self.placa
