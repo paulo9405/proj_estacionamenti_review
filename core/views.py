@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
-from .models import Pessoa, Veiculo, MovRotative
-from .forms import PessoaForm, VeiculoForm, MovRotativeForm
+from .models import Pessoa, Veiculo, MovRotative, Mensalista
+from .forms import PessoaForm, VeiculoForm, MovRotativeForm, MensalistaForm
 
 
 def home(request):
@@ -48,3 +48,17 @@ def mov_rot_novo(request):
     if form.is_valid():
         form.save()
     return redirect('core_lista_movrotativo')
+
+
+def lista_mensalista(request):
+    mensalistas = Mensalista.objects.all()
+    form = MensalistaForm()
+    data = {'mensalistas': mensalistas, 'form': form}
+    return render(request, 'core/lista_mensalista.html', data)
+
+
+def mensalista_novo(request):
+    form = MensalistaForm(request.POST or None)
+    if form.is_valid():
+        form.save()
+    return redirect('core_lista_mensalista')
