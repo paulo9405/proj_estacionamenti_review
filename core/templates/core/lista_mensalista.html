@@ -1,8 +1,9 @@
 <ul>
     {% for mensalista in mensalistas %}
-        <li>{{ mensalista.veiculo }}</li>
-        <li>{{ mensalista.inicio }}</li>
-        <li>{{ mensalista.valor_mes }}</li>
+        <li>
+            <a href="{% url 'core_mensalista_update' mensalista.id %}">{{ mensalista.veiculo }}</a>
+        </li>
+
     {% endfor %}
 </ul>
 
