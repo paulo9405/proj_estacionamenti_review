@@ -73,6 +73,15 @@ def veiculo_update(request, id):
         return render(request, 'core/veiculo_update.html', data)
 
 
+def veiculo_delete(request, id):
+    veiculo = Veiculo.objects.get(id=id)
+    if request.method == 'POST':
+        veiculo.delete()
+        return redirect('core_lista_veiculo')
+    else:
+        return render(request, 'core/delete_confirm.html', {'obj': veiculo})
+
+
 def lista_movrotativo(request):
     mov_rot = MovRotative.objects.all()
     form = MovRotativeForm()

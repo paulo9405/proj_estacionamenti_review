@@ -7,4 +7,6 @@
         {{ form.as_p }}
 
         <button type="submit">Salvar</button>
+        <a href="{% url 'core_veiculo_delete' veiculo.id %}">Deletar</a>
+
     </form>
