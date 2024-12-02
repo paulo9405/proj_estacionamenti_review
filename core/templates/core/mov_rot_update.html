@@ -1,0 +1,10 @@
+<h2>Update Mov Update: {{ mov_rot }}</h2>
+
+
+    <form action="{% url 'core_mov_rot_update' mov_rot.id %}" method="POST">
+        {% csrf_token %}
+
+        {{ form.as_p }}
+
+        <button type="submit">Salvar</button>
+    </form>

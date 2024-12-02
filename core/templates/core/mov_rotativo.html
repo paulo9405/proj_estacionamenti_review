@@ -1,10 +1,10 @@
 <ul>
-    {% for mov in mov_rot %}
-        <li>{{ mov.checkin }}</li>
-        <li>{{ mov.checkout }}</li>
-        <li>{{ mov.valor_hora }}</li>
-        <li>{{ mov.veiculo }}</li>
+    {% for mov_update in mov_rot %}
+        <li>
+            <a href="{% url 'core_mov_rot_update' mov_update.id %}">{{ mov_update.veiculo }}</a>
+        </li>
     {% endfor %}
+
 </ul>
 
 
