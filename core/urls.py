@@ -16,6 +16,7 @@ urlpatterns = [
     path('mov_rotativo/', views.lista_movrotativo, name='core_lista_movrotativo'),
     path('mov_rotativo-novo/', views.mov_rot_novo, name='core_movrotativo_novo'),
     path('mov_rot_update/<int:id>/', views.mov_rot_update, name='core_mov_rot_update'),
+    path('movrot-delete/<int:id>/', views.mov_rot_delete, name='core_mov_rot_delete'),
 
     path('mensalista/', views.lista_mensalista, name='core_lista_mensalista'),
     path('mensalista-novo/', views.mensalista_novo, name='core_mensalista_novo'),
