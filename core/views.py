@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
-from .models import Pessoa, Veiculo, MovRotative, Mensalista
-from .forms import PessoaForm, VeiculoForm, MovRotativeForm, MensalistaForm
+from .models import Pessoa, Veiculo, MovRotative, MovMensalista, Mensalista
+from .forms import PessoaForm, VeiculoForm, MovRotativeForm, MovMensalistaForm, MensalistaForm
 
 
 def home(request):
@@ -154,3 +154,17 @@ def mensalista_delete(request, id):
         return redirect('core_lista_mensalista')
     else:
         return render(request, 'core/delete_confirm.html', {'obj': mensalista})
+
+
+def movmensalista(request):
+    mov_mensalistas = MovMensalista.objects.all()
+    form = MensalistaForm()
+    data = {'mov_mensalistas': mov_mensalistas, 'form': form}
+    return render(request, 'core/movmensalista.html', data)
+
+
+def movmensalista_novo(request):
+    form = MovMensalistaForm(request.POST or None)
+    if form.is_valid():
+        form.save()
+    return redirect('core_lista_movmensalista')
