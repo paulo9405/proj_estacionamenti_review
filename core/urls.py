@@ -21,5 +21,6 @@ urlpatterns = [
     path('mensalista/', views.lista_mensalista, name='core_lista_mensalista'),
     path('mensalista-novo/', views.mensalista_novo, name='core_mensalista_novo'),
     path('mensalista-update/<int:id>/', views.mensalista_update, name='core_mensalista_update'),
+    path('mensalista-delete/<int:id>/', views.mensalista_delete, name='core_mensalista_delete'),
 
 ]
