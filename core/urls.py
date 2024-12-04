@@ -25,5 +25,6 @@ urlpatterns = [
 
     path('movmensalista', views.movmensalista, name='core_lista_movmensalista'),
     path('movmensalista-novo', views.movmensalista_novo, name='core_movmensalista_novo'),
+    path('movmensalista-update/<int:id>/', views.movmensalista_update, name='core_movmensalista_update'),
 
 ]
